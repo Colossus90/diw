@@ -1,0 +1,70 @@
+body {
+    margin: 0;
+}
+
+/* blauwe menubalk boven */
+#headerCont {
+    width: 100%;
+    position: fixed;
+    z-index: 1000px;
+    top: 0px;
+}
+
+#header {
+    background-color: #3D8CA5;
+    height: 60px;
+    display: flex;
+    margin: 0px auto;
+}
+
+#closeIcon {
+    width: 30px;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+#logo {
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+}
+
+#shareBtn {
+    width: 40px;
+    margin-top: 8px;
+    margin-right: 15px;
+}
+
+/* post btn */
+#postBtn {
+    background: none;
+    border: none;
+}
+
+#postTekst {
+    font-family: "Futura";
+    color: white;
+    margin-top: 20px;
+    margin-right: 15px;
+}
+
+/* titel schrijf een artikel */
+#schrijfArtikel {
+    font-family: "Futura";
+    margin-top: 80px;
+    margin-left: 20px;
+    font-weight: normal;
+    font-size: 2em;
+}
+
+
+
+
+
+
+
+
+
+
+

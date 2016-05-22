@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+}
+
+/* blauwe menubalk boven */
+#headerCont {
+    width: 100%;
+    position: fixed;
+    z-index: 1000px;
+    top: 0px;
+}
+
+#header {
+    background-color: #3D8CA5;
+    height: 60px;
+    display: flex;
+    margin: 0px auto;
+}
+
+#closeIcon {
+    width: 30px;
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-right: -45px;
+}
+
+#logo {
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#shareBtn {
+    width: 40px;
+    margin-top: 8px;
+    margin-right: 15px;
+}
+
+/* witte menubalk onder */
+#footerCont {
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+}
+
+#footer {
+    opacity: 0.9;
+    height: 60px;
+    display: flex;
+    margin: 0px auto;
+    border-top: 1px solid #AFAFAF;
+    background-color: white;
+}
+
+.footerIcon {
+    width: 50px;
+}
+
+.footerLink {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#test {
+    margin-top: 300px;
+}
+
+/* categories */
+
+#formCont {
+    text-align: center;
+}
+
+#formCategories {
+    margin-top: 65px;
+    margin-bottom: 85px;
+}
+
+.buttons {
+    width: 90%;
+    background: none;
+    border: none;
+    margin-top: 20px;
+}
+
+.images {
+    width: 100%;
+
+}
