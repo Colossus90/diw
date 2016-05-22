@@ -27,8 +27,6 @@
                 case "Email":
                     $this->m_sEmail = $p_vValue;
                     break;
-
-
             }
         }
 
@@ -37,7 +35,7 @@
         {
             $vResult = null;
             switch ($p_sProperty) {
-                case "UserName":
+                case "Username":
                     $vResult = $this->m_sUserName;
                     break;
                 case "Email":
@@ -74,14 +72,22 @@
 
         public function register()
         {
-            $conn = new PDO('mysql:host=localhost;dbname=diw', "root", "");
-            $stmt = $conn->prepare("INSERT INTO users (username, email, password) values (:username, :email, :password )");
-            $stmt->bindValue(":username", $this->UserName);
-            $stmt->bindValue(":email", $this->Email);
-            $options = ['cost' => 12];
-            $password = password_hash($this->m_sPassword, PASSWORD_DEFAULT, $options);
-            $stmt->bindValue(":password", $password);
-            $stmt->execute();
+            try{
+                $conn = new PDO('mysql:host=localhost;dbname=diw', "root", "", array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+
+                $stmt = $conn->prepare("INSERT INTO users (username, email, password) values (:username, :email, :password )");
+                $stmt->bindValue(":username", $this->Username);
+                $stmt->bindValue(":email", $this->Email);
+                $options = ['cost' => 12];
+                $password = password_hash($this->m_sPassword, PASSWORD_DEFAULT, $options);
+                $stmt->bindValue(":password", $password);
+                $stmt->execute();
+
+                //die(json_encode(array('outcome' => true)));
+            }
+            catch(PDOException $ex){
+                die(json_encode(array('outcome' => false, 'message' => $ex)));
+            }
         }
     }
 ?>
