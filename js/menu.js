@@ -7,3 +7,5 @@ function changeImage()  {
         image.src = "images/homeIconHover.png";
     }
 }
+
+test
