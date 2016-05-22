@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2016 at 06:16 PM
+-- Generation Time: May 22, 2016 at 07:47 PM
 -- Server version: 5.7.9
 -- PHP Version: 5.6.16
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `diw`
 --
-CREATE DATABASE IF NOT EXISTS `diw` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-USE `diw`;
 
 -- --------------------------------------------------------
 
@@ -83,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `mail` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `photo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -92,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `mail`, `photo`) VALUES
+INSERT INTO `users` (`id`, `username`, `password`, `email`, `photo`) VALUES
 (1, 'Admin', '5f4dcc3b5aa765d61d8327deb882cf99', 'jens.mollen@gmail.com', '/'),
 (2, 'DIW', '5f4dcc3b5aa765d61d8327deb882cf99', 'contact@vrt.be', '/');
 
