@@ -6,7 +6,8 @@
  * Time: 5:25 PM
  */
 
-    class User {
+    class User
+    {
         //member variabelen
         private $m_sUserName;
         private $m_sEmail;
@@ -16,7 +17,7 @@
         // SETTER
         public function __set($p_sProperty, $p_vValue)
         {
-            switch($p_sProperty) {
+            switch ($p_sProperty) {
                 case "Username":
                     $this->m_sUserName = $p_vValue;
                     break;
@@ -30,12 +31,12 @@
 
             }
         }
-            // GETTER
+
+        // GETTER
         public function __get($p_sProperty)
         {
             $vResult = null;
-            switch($p_sProperty)
-            {
+            switch ($p_sProperty) {
                 case "UserName":
                     $vResult = $this->m_sUserName;
                     break;
@@ -51,23 +52,36 @@
 
         public function login()
         {
-            $conn = new PDO('mysql:host=localhost;dbname=diw', "root", "root");
+            $conn = new PDO('mysql:host=localhost;dbname=diw', "root", "");
+            $query = $conn->prepare("SELECT * from users where username = :username");
+            $query->bindValue(":username", $this->m_sUserName);
+            $query->execute();
+            if ($query->rowCount() > 0) {
+                $result = $query->fetch(PDO::FETCH_ASSOC);
+                $_SESSION['id'] = $result['id'];
+                $_SESSION['username'] = $result['username'];
+                $password = $this->m_sPassword;
+                $hash = $result['password'];
+                if (password_verify($password, $hash)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
         }
 
         public function register()
         {
-            $conn = new PDO('mysql:host=localhost;dbname=diw', "root", "root");
+            $conn = new PDO('mysql:host=localhost;dbname=diw', "root", "");
+            $stmt = $conn->prepare("INSERT INTO users (username, email, password) values (:username, :email, :password )");
+            $stmt->bindValue(":username", $this->UserName);
+            $stmt->bindValue(":email", $this->Email);
+            $options = ['cost' => 12];
+            $password = password_hash($this->m_sPassword, PASSWORD_DEFAULT, $options);
+            $stmt->bindValue(":password", $password);
+            $stmt->execute();
         }
-
-}
-
-
-
-
-
-
-
-
-
-
+    }
 ?>

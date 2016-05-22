@@ -1,3 +1,22 @@
+<?php
+include_once("../classes/user.class.php");
+if(!empty($_POST)) {
+    if(!empty($_POST['email']) && !empty($_POST['gebruikersnaam']) && !empty($_POST['wachtwoord']))
+    {
+        $user = new User();
+        $user->Email = $_POST['email'];
+        $user->Username = $_POST['gebruikersnaam'];
+        $user->Password = $_POST['wachtwoord'];
+        $user->register();
+        header('location: login.php');
+        $feedback = "Thank you for signing up!";
+        echo $feedback;
+    }
+}
+?>
+
+
+
 <!doctype html>
 <html lang="en">
 <head>
