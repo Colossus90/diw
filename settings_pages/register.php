@@ -1,5 +1,6 @@
 <?php
 include_once("../classes/user.class.php");
+session_start();
 if(!empty($_POST)) {
 
     if(!empty($_POST['email']) && !empty($_POST['gebruikersnaam']) && !empty($_POST['wachtwoord']))

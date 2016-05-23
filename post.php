@@ -1,3 +1,20 @@
+<?php
+include_once ("classes/article.class.php");
+session_start();
+
+if(!empty($_FILES["foto"])&& !empty($_POST['titel'])&& !empty($_POST['categorie'])&& !empty($_POST['inleiding'])&& !empty($_POST['paragraaf']))
+{
+
+    $post = new article();
+    $post ->Category = $_POST['categorie'];
+    $post ->Intro = $_POST['inleiding'];
+    $post ->Paragraph = $_POST['paragraaf'];
+    $post ->Title = $_POST['titel'];
+
+    $post->postarticle();
+}
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -21,7 +38,7 @@
         <img id="logo" src="images/logo.png" alt="Logo DIW - De Ideale Wereld">
         <!-- POSTEN IN DATABASE!!! -->
         <!-- dan terug op home gesorteerd op meest recent -->
-        <form action="index.php" method="post">
+        <form action="" method="post">
             <button type="submit" id="postBtn" name="post">
                 <p id="postTekst">POST</p>
             </button>
@@ -35,7 +52,7 @@
 
 <!-- post een artikel: formulier -->
 <section>
-    <form action="index.php" method="post">
+    <form action= "" method="post" enctype="multipart/form-data">
         <!-- titel -->
         <input type="text" name="titel" id="titel" placeholder="Schrijf hier een titel">
         <!-- categorie -->
@@ -71,7 +88,7 @@
         </select>
         <!-- foto -->
         <label for="foto">Foto</label>
-        <input type="file" id="foto" name="foto">
+        <input type="file" id="foto" name="foto" alt="post-image">
         <!-- inleiding -->
         <input type="text" name="inleiding" id="inleiding" placeholder="Schrijf hier een korte inleiding">
         <!-- paragraaf -->
