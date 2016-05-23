@@ -1,4 +1,38 @@
+<?php
+include_once("../classes/user.class.php");
+session_start();
 
+if(isset($_SESSION['loggedinTr'])){
+    if($_SESSION['loggedinTr'] == true) {
+        header('location: ../index.php');
+    }
+    else {
+        header('location: ../login.php');
+    }
+}
+
+if(!empty($_POST)) {
+
+    if(!empty($_POST['gebruikersnaam']) && !empty($_POST['wachtwoord']))
+    {
+        $user = new User();
+        $user->Username = $_POST['gebruikersnaam'];
+        $user->Password = $_POST['wachtwoord'];
+        if($user->login()) {
+            $_SESSION['loggedinTr'] = true;
+            $_SESSION['loggedin'] = 'yes';
+
+            header('location: ../index.php');
+        }
+        else {
+            $error = "De gebruikersnaam en/of wachtwoord zijn incorrect.";
+        }
+    }
+    else {
+        $error = "Gelieve gebruikersnaam en wachtwoord in te vullen.";
+    }
+}
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -36,6 +70,13 @@
     <input type="password" id="wachtwoord" name="wachtwoord" placeholder="Wachtwoord">
     <input type="submit" value="Inloggen" id="submit" name="submit">
 </form>
+
+<div class="errorText">
+    <?php if(isset($error)): ?>
+        <p><?php echo $error ?></p>
+    <?php else: ?>
+    <?php endif ?>
+</div>
 
 <div id="wwCont">
     <a id="wachtwoordVergeten" href="">Wachtwoord vergeten?</a>

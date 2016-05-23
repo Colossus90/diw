@@ -1,3 +1,17 @@
+<?php
+session_start();
+if(isset($_SESSION['loggedinTr'])){
+    if($_SESSION['loggedinTr'] == true) {
+        $hidden = "";
+        $hidden2 = "style = visibility : hidden";
+    }
+    else {
+        $hidden = "style = visibility : hidden";
+        $hidden2 = "";
+    }
+}
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -32,15 +46,15 @@
 
 <!-- als je ingelogd/geregistreerd bent, zie je dit! -->
 <section>
-    <div id="account">
+    <div id="account" <?php echo $hidden ?>>
         <p id="accountSubtitel" class="subtitel">Account</p>
         <!-- username die ingelogd is -->
-        <p id="welkom">Welkom, accountnaam</p>
+        <p id="welkom">Welkom, <?php echo $_SESSION['username'] ?></p>
         <a class="link" href="settings_pages/wijzigaccount.php">Wijzig account</a>
         <a class="link" href="settings_pages/logout.php">Log uit</a>
     </div>
-        <!-- onzichtbare blok account: niet geregistreerd  -->
-        <!-- <a href="settings_pages/register.php">Registreren</a> -->
+
+       <div <?php echo $hidden2 ?>> <a class="link" href="settings_pages/register.php">Registreren</a></div>
 
     <div id="info">
         <p id="infoSubtitel" class="subtitel">Info</p>
