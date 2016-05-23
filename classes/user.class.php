@@ -5,7 +5,7 @@
  * Date: 5/22/2016
  * Time: 5:25 PM
  */
-include_once("Db.class.php");
+include_once("db.class.php");
     class User
     {
         //member variabelen

@@ -1,15 +1,5 @@
 <?php
-session_start();
-if(isset($_SESSION['loggedinTr'])){
-    if($_SESSION['loggedinTr'] == true) {
-        $hidden = "";
-        $hidden2 = "style = visibility : hidden";
-    }
-    else {
-        $hidden = "style = visibility : hidden";
-        $hidden2 = "";
-    }
-}
+include_once("classes/loggedin.class.php")
 ?>
 
 <!doctype html>
@@ -54,7 +44,9 @@ if(isset($_SESSION['loggedinTr'])){
         <a class="link" href="settings_pages/logout.php">Log uit</a>
     </div>
 
-       <div <?php echo $hidden2 ?>> <a class="link" href="settings_pages/register.php">Registreren</a></div>
+    <div <?php echo $hidden2 ?>> <a class="link" href="settings_pages/register.php">Registreren</a></div>
+    <div <?php echo $hidden2 ?>> <a class="link" href="settings_pages/login.php">Log In.</a></div>
+
 
     <div id="info">
         <p id="infoSubtitel" class="subtitel">Info</p>
