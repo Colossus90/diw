@@ -16,7 +16,7 @@ class article {
     private $m_sFk_user_id;
     private $m_sParagraph;
     private $m_sTitle;
-
+ggg
     // SETTER
         public function __set($p_sProperty, $p_vValue)
         {
