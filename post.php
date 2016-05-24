@@ -1,6 +1,8 @@
 <?php
-include_once ("classes/article.class.php");
 session_start();
+include_once ("classes/article.class.php");
+include_once ("function/loggedin.php");
+
 
 if(!empty($_FILES["foto"])&& !empty($_POST['titel'])&& !empty($_POST['categorie'])&& !empty($_POST['inleiding'])&& !empty($_POST['paragraaf']))
 {

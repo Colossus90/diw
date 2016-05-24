@@ -1,3 +1,7 @@
+<?php
+session_start();
+include_once ("function/loggedin.php");
+?>
 <!doctype html>
 <html lang="en">
 <head>
