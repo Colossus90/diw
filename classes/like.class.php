@@ -62,7 +62,7 @@ class upvote
     public function likecheck()
     {
         $conn = Db::getInstance();
-        $query = $conn->prepare("SELECT * from upvote where postid = :postid");
+        $query = $conn->prepare("SELECT * from upvote where fk_post_id = :postid AND fk_user_id = :userid");
         $query->bindValue(":postid", $_SESSION['id']);
         $query->execute();
         if ($query->rowCount() > 0) {
@@ -73,8 +73,8 @@ class upvote
                 $stmt->execute();
                 } else {
                     $stmt = $conn->prepare("INSERT INTO upvote (fk_post_id, fk_user_id, uptime) values (:postid, :userid, :uptime )");
-                    $stmt->bindValue(":postid", $this->Username);
-           	        $stmt->bindValue(":userid", $this->Email);
+                    $stmt->bindValue(":postid", $this->PostId);
+           	        $stmt->bindValue(":userid", $this->UserId);
                     $stmt->bindValue(":uptime", $this->Uptime);
 		            $stmt->execute();
                 }
@@ -82,6 +82,12 @@ class upvote
                 return false;
             }
         }
+
+    public function likecount()
+    {
+        $conn = Db::getInstance();
+
+    }
 
 }
 
