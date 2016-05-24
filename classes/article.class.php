@@ -19,6 +19,7 @@ class article {
     private $m_sPhotoName;
   //  private $m_sPhotoSize;
     private $m_sPhotoNameT;
+    private $m_sUpvotes;
 
     // SETTER
         public function __set($p_sProperty, $p_vValue)
@@ -57,6 +58,9 @@ class article {
                 case "PhotoNameT":
                     $this->m_sPhotoNameT = $p_vValue;
                     break;
+                /*case "Upvotes":
+                    $this->m_sUpvotes = $p_vValue;
+                    break;*/
             }
         }
     // GETTER
@@ -97,7 +101,9 @@ class article {
                     case "PhotoNameT":
                         $vResult = $this->m_sPhotoNameT ;
                         break;
-
+                    case "Upvotes":
+                        $vResult = $this->m_sUpvotes;
+                        break;
                     }
                     return $vResult;
          }
