@@ -27,38 +27,38 @@
 <!-- moet niet gewoon naar index pagina gaan -->
 <!-- moet naar aangepaste index gaan o.b.v. gekozen cat -->
 <div id="formCont">
-    <form id="formCategories" action="index.php">
-        <button class="buttons" id="afleveringen" name="afleveringen" type="submit">
+    <div id="formCategories">
+        <a href="categorie.php?catid=afleveringen" class="buttons" id="afleveringen">
             <img class="images" id="afleveringenImg" src="images/catAfleveringen.png" alt="Afleveringen">
-        </button>
-        <button class="buttons" id="binnenland" name="binnenland" type="submit">
+        </a>
+        <a href="categorie.php?catid=binnenland" class="buttons" id="binnenland">
             <img class="images" id="binnenlandImg" src="images/catBinnenland.png" alt="Binnenland">
-        </button>
-        <button class="buttons" id="buitenland" name="buitenland" type="submit">
+        </a>
+        <a href="categorie.php?catid=buitenland" class="buttons" id="buitenland">
             <img class="images" id="buitenlandImg" src="images/catBuitenland.png" alt="Buitenland">
-        </button>
-        <button class="buttons" id="cultuur" name="cultuur" type="submit">
+        </a>
+        <a href="categorie.php?catid=cultuur" class="buttons" id="cultuur">
             <img class="images" id="cultuurImg" src="images/catCultuur.png" alt="Cultuur">
-        </button>
-        <button class="buttons" id="economie" name="economie" type="submit">
+        </a>
+        <a href="categorie.php?catid=economie" class="buttons" id="economie">
             <img class="images" id="economieImg" src="images/catEconomie.png" alt="Economie">
-        </button>
-        <button class="buttons" id="politiek" name="politiek" type="submit">
+        </a>
+        <a href="categorie.php?catid=politiek" class="buttons" id="politiek">
             <img class="images" id="politiekImg" src="images/catPolitiek.png" alt="Politiek">
-        </button>
-        <button class="buttons" id="sport" name="sport" type="submit">
+        </a>
+        <a href="categorie.php?catid=sport" class="buttons" id="sport">
             <img class="images" id="sportImg" src="images/catSport.png" alt="Sport">
-        </button>
-        <button class="buttons" id="technologie" name="technologie" type="submit">
+        </a>
+        <a href="categorie.php?catid=technologie" class="buttons" id="technologie">
             <img class="images" id="technologieImg" src="images/catTechnologie.png" alt="Technologie">
-        </button>
-        <button class="buttons" id="tvEnMedia" name="tvEnMedia" type="submit">
+        </a>
+        <a href="categorie.php?catid=tvEnMedia" class="buttons" id="tvEnMedia">
             <img class="images" id="tvEnMediaImg" src="images/catTvEnMedia.png" alt="TV en media">
-        </button>
-        <button class="buttons" id="wetenschap" name="wetenschap" type="submit">
+        </a>
+        <a href="categorie.php?catid=wetenschap" class="buttons" id="wetenschap">
             <img class="images" id="wetenschapImg" src="images/catWetenschap.png" alt="Wetenschap">
-        </button>
-    </form>
+        </a>
+    </div>
 </div>
 
 

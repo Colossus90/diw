@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $_SESSION['loggedin'] = $_GET['artid'];
+    $_SESSION['arti'] = $_GET['artid'];
     include_once("classes/article.class.php");
     $art = new article();
     $arts = $art->getarticleid();

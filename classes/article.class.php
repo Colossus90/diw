@@ -128,7 +128,22 @@ class article {
         $PDO = Db::getInstance();
 
         $query = $PDO->prepare("SELECT * from createpost where id = :postid LIMIT 1");
-        $query->bindValue(":postid", $_SESSION['loggedin']); // die zit volgens jou in je sessie
+        $query->bindValue(":postid", $_SESSION['arti']); // die zit volgens jou in je sessie
+        $query->execute();
+        $result = $query->fetchAll();
+
+        return $result;
+
+
+
+    }
+    public function getarticlecat()
+    {
+
+        $PDO = Db::getInstance();
+
+        $query = $PDO->prepare("SELECT * from createpost where categorie = :postid");
+        $query->bindValue(":postid", $_SESSION['cate']); // die zit volgens jou in je sessie
         $query->execute();
         $result = $query->fetchAll();
 
