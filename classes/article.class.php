@@ -107,7 +107,22 @@ class article {
                     }
                     return $vResult;
          }
+    public function getarticle()
+    {
 
+        $PDO = Db::getInstance();
+        $limit =10;
+
+        $statement = $PDO->prepare("SELECT * FROM posts ORDER BY pdate desc LIMIT $limit");
+        $statement->execute();
+
+        $result = $statement->fetchAll();
+
+        return $result;
+
+
+
+    }
     public function postarticle()
     {
            /* $file_name = $_SESSION['id'] . "-" . time() . "-" . $this->m_sPhotoName;

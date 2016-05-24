@@ -1,3 +1,8 @@
+<?php
+    include_once("article.class.php");
+
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
