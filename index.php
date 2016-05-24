@@ -1,3 +1,12 @@
+<?php
+session_start();
+include_once("classes/article.class.php");
+include_once("function/timecon.php");
+$art = new article();
+$arts = $art->getarticle();
+
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -21,54 +30,18 @@
     </header>
 </div>
 
-
-<!-- uitgelicht artikel -->
-<section id="uitgelicht">
-    <!-- link naar juiste artikel -->
-        <a id="articleLink" href="article.php">
-            <div>
-            <!-- moet foto uit database worden -->
-            <img id="fotoUitgelicht" src="images/uitgelichtFoto.png" alt="">
-        </div>
-
-        <div>
-            <h1 id="categorie">Tv & media</h1>
-        </div>
-
-        <div id="uitgelichtTitels">
-            <!-- moet titel worden dat getypt is in post -->
-            <!-- moet categorie worden dat gekozen is in post -->
-            <h1 id="titelUitgelicht">De échte reden waarom DIW geen aprilgrap maakte</h1>
-        </div>
-        </a>
-
-    <div id="uitgelichtInfo">
-        <!-- moet avatar worden van gebruiker -->
-        <img id="avatar" src="images/logo2.png" alt="">
-        <!-- moet gebruikersnaam worden -->
-        <p id="gebruikersnaam">DIW</p>
-        <img id="checkIcon" src="images/checkIcon.png" alt="">
-        <!-- hartje ingekleurd als het geliked is door gebruiker -->
-        <img id="like" src="images/likeIcon.png" alt="">
-        <!-- aantal likes weergeven -->
-        <p id="aantalLikes">55</p>
-        <!-- tijdstip tonen van upload in database -->
-        <p id="tijdstip">1u geleden</p>
-    </div>
-</section>
-
-
-
 <!-- kleinere artikels -->
+<?php foreach ($arts as $art): ?>
 <section id="artikels">
-        <a id="articleLink" href="article.php">
+
+        <a id="articleLink" href=article.php?artid=<?php echo $art['id'] ?>>
     <div>
-        <h1 id="categorieKlein">Tv & media</h1>
+        <h1 id="categorieKlein"><?php echo $art['categorie'] ?></h1>
     </div>
 
     <div id="artikelsHoofd">
-        <h2 id="titelArtikel">Captain America kan ons redden van de socialisten</h2>
-        <img id="fotoKlein" src="images/artikelFoto.png" alt="">
+        <h2 id="titelArtikel"><?php echo $art['titel'] ?></h2>
+        <img id="fotoKlein" src="images/ArticlePictures/<?php echo $art['photo'] ?>" alt="">
         <!-- moet categorie worden dat gekozen is in post -->
     </div>
         </a>
@@ -83,11 +56,11 @@
         <!-- aantal likes weergeven -->
         <p id="aantalLikesKlein">55</p>
         <!-- tijdstip tonen van upload in database -->
-        <p id="tijdstipKlein">1u geleden</p>
+        <p id="tijdstipKlein"><?php echo timeAgo($art["pdate"])?></p>
     </div>
 </section>
 
-
+<?php endforeach; ?>
 
 
 <!-- witte menubalk onder -->

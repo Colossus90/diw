@@ -163,3 +163,21 @@ body {
 #articleLink {
     text-decoration: none;
 }
+
+#search {
+    border: none;
+    font-family: "Open Sans";
+    font-size: 1em;
+    text-align: center;
+    background-color: #EDEDED;
+    border-radius: 2px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 95%;
+}
+
+#searchCont {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}

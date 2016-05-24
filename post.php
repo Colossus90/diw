@@ -56,7 +56,8 @@ if(!empty($_FILES["foto"])&& !empty($_POST['titel'])&& !empty($_POST['categorie'
         <!-- titel -->
         <input type="text" name="titel" id="titel" placeholder="Schrijf hier een titel">
         <!-- categorie -->
-        <label for="categorie">Categorie</label>
+        <div id="categorieCont">
+        <label id="categorieLabel" for="categorie">Categorie</label>
         <select name="categorie" id="categorie">
             <option value="binnenland">
                 Binnenland
@@ -86,9 +87,12 @@ if(!empty($_FILES["foto"])&& !empty($_POST['titel'])&& !empty($_POST['categorie'
                 Wetenschap
             </option>
         </select>
+            </div>
         <!-- foto -->
-        <label for="foto">Foto</label>
+        <div id="fotoCont">
+        <label id="fotoLabel" for="foto">Foto</label>
         <input type="file" id="foto" name="foto" alt="post-image">
+            </div>
         <!-- inleiding -->
         <input type="text" name="inleiding" id="inleiding" placeholder="Schrijf hier een korte inleiding">
         <!-- paragraaf -->

@@ -58,6 +58,84 @@ body {
     font-size: 2em;
 }
 
+#titel {
+    border: none;
+    border-bottom: 1px solid #D1D1D1;
+    border-top: 1px solid #D1D1D1;
+    display: block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    width: 100%;
+    font-family: "Open Sans";
+    font-size: 1em;
+}
+
+#inleiding {
+    border: none;
+    border-bottom: 1px solid #D1D1D1;
+    border-top: 1px solid #D1D1D1;
+    display: block;
+    padding-top: 5px;
+    padding-bottom: 35%;
+    padding-left: 20px;
+    width: 100%;
+    font-family: "Open Sans";
+    font-size: 1em;
+}
+
+#paragraaf {
+    border: none;
+    border-bottom: 1px solid #D1D1D1;
+    display: block;
+    padding-top: 5px;
+    padding-bottom: 60%;
+    padding-left: 20px;
+    width: 100%;
+    font-family: "Open Sans";
+    font-size: 1em;
+}
+
+#categorieLabel {
+    font-family: "Open Sans";
+    font-size: 1em;
+    color: dimgray;
+    padding-left: 20px;
+    width: 100%;
+    padding-top: 5px;
+}
+
+#fotoLabel {
+    font-family: "Open Sans";
+    font-size: 1em;
+    color: dimgray;
+    padding-left: 20px;
+    width: 100%;
+    padding-top: 5px;
+}
+
+#fotoCont {
+    display: block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#categorieCont {
+    display: block;
+    border-bottom: 1px solid #D1D1D1;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#post {
+    text-align: center;
+    background-color: #3D8CA5;
+    width: 100%;
+    height: 10%;
+    border: none;
+    color: white;
+    font-size: 2em;
+}
 
 
 

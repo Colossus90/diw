@@ -1,5 +1,10 @@
 <?php
-    include_once("article.class.php");
+    session_start();
+    $_SESSION['loggedin'] = $_GET['artid'];
+    include_once("classes/article.class.php");
+    $art = new article();
+    $arts = $art->getarticleid();
+
 
 ?>
 
@@ -33,14 +38,18 @@
 </div>
 
 <!-- artikel -->
+
 <section>
+    <?php foreach ($arts as $art): ?>
     <div id="top">
-        <img id="fotoArtikel" src="images/uitgelichtFoto.png" alt="">
-        <h1 id="titelArtikel">De échte reden waarom DIW geen aprilgrap maakte</h1>
+        <img id="fotoArtikel" src="images/ArticlePictures/<?php echo $art['photo'] ?>" alt="">
+
+            <h1 id="titelArtikel"><?php echo $art['titel'] ?></h1>
+
     </div>
 
     <div>
-        <h1 id="categorieKlein">Tv & media</h1>
+        <h1 id="categorieKlein"><?php echo $art['categorie'] ?></h1>
     </div>
 
     <div id="infoCont">
@@ -51,18 +60,14 @@
     </div>
 
     <div>
-        <p id="datum">Geschreven op 2 april '16 om 12:46 u</p>
+        <p id="datum">Geschreven op <?php echo $art['pdate'] ?></p>
     </div>
 
     <div>
-        <p id="inleiding">Vorige vrijdag stond heel het land in rep en roer: het was 1 april, en De Ideale Wereld verzaakte aan haar plicht om een grap uit te halen. Onze redactie kreeg honderden lezersbrieven binnen met de prangende vraag: 'Hoe zoiets ooit is kunnen
-            gebeuren?'.</p>
-        <p id="paragraaf">We gingen te rade bij Leen April, verantwoordelijke voor de 1-aprilgrappen van De Ideale Wereld. April beweert van niets te weten, dus contacteren we Guust Rapjas, tweede in rang bij de dienst Aprilgrappen: “Dit jaar was het de bedoeling dat Mattijs Oppentapper de mop voorzag. Ik zou dus daar eens gaan horen, want het is volgens mij is het zijn schuld,” aldus Rapjas.</br>
-        </br>We trekken naar het huis van Oppentapper, en daar treffen we zijn partner, Cas Teyt: "Oppentapper en ik hebben net een kindje geadopteerd, Hillary (Teyt, nvdr). Daardoor hadden we geen tijd voor een grap. Maar we hadden gevraagd aan onze Britse kennis Toestanden – wij noemen haar altijd Miss – om dit jaar de aprilgrap van ons over te nemen.”</br></br>
-            We konden mevrouw Toestanden bereiken in het buitenland: “Yes, Teyt en Oppentapper hebben me ge-asked om een april-grap te maken. That is somewhere wrong gelopen. Het enige dat ik know, is dat het for sure niets te maken heeft met een luie webredacteur die op ski-vacation was and geen inspiration had voor een goode grap.”</br></br><strong id="bold">“Het enige dat ik know, is dat het for sure niets te maken heeft met een luie webredacteur die op ski-vacation was and geen inspiration had voor een goode grap.”</strong> - Ms. Toestanden, Britse kennis van Teyt en Oppentapper</br></br>
-            Voorlopig blijft het hele verhaal dus helaas vooral een paar mensen met grappige namen die de hete aardappel naar elkaar doorschuiven. We blijven het evenwel opvolgen, en we houden u op de hoogte van eventuele nieuwe ontwikkelingen in het mysterieuze relaas.</br></br></p>
+        <p id="inleiding"><?php echo $art['inleiding'] ?></p>
+        <p id="paragraaf"><?php echo $art['paragraaf'] ?></p>
     </div>
-    
+    <?php endforeach; ?>
     <div id="commentEnLikeCont">
         <img id="comment" src="images/commentIcon.png" alt="Commentaar icoon">
         <!-- hier moet het aantal comments komen -->

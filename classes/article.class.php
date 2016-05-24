@@ -111,12 +111,26 @@ class article {
     {
 
         $PDO = Db::getInstance();
-        $limit =10;
 
-        $statement = $PDO->prepare("SELECT * FROM posts ORDER BY pdate desc LIMIT $limit");
+        $statement = $PDO->prepare("SELECT * FROM createpost ORDER BY pdate desc LIMIT 10");
         $statement->execute();
 
         $result = $statement->fetchAll();
+
+        return $result;
+
+
+
+    }
+    public function getarticleid()
+    {
+
+        $PDO = Db::getInstance();
+
+        $query = $PDO->prepare("SELECT * from createpost where id = :postid LIMIT 1");
+        $query->bindValue(":postid", $_SESSION['loggedin']); // die zit volgens jou in je sessie
+        $query->execute();
+        $result = $query->fetchAll();
 
         return $result;
 
