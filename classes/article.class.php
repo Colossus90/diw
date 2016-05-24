@@ -172,7 +172,7 @@ class article {
         $target_dir = "images/ArticlePictures/";
         $tmp = explode("." , $_FILES['foto']['name']);
         $target_ext = end($tmp);
-        if( $target_ext == "jpg" || $target_ext == "png" || $target_ext == "jpeg" || $target_ext == "gif")
+        if( $target_ext == "jpg" || $target_ext == "png" || $target_ext == "jpeg" || $target_ext == "gif" || $target_ext == "JPG")
         {
             $target_tempname = $_SESSION['id'] . "-" . time() . "-" . $_FILES['foto']['name'];
             if(!file_exists($target_dir . $target_tempname)){

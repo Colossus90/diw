@@ -12,7 +12,7 @@ if(!empty($_FILES["foto"])&& !empty($_POST['titel'])&& !empty($_POST['categorie'
     $post ->Title = $_POST['titel'];
 
     $post->postarticle();
-    header('location: ../index.php');
+    header('location: index.php');
 }
 ?>
 
